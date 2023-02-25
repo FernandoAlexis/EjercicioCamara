@@ -20,11 +20,14 @@ import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView captureTxt;
     String path;
     Uri uri;
+    File fileImagen;
     private ImageView captureImage,sendWhatssap,sendCorreo;
 
     @Override
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.setVmPolicy(builder.build());
 
         sendWhatssap = findViewById(R.id.send);
-        sendCorreo = findViewById(R.id.correo);
+
         captureTxt = findViewById(R.id.idEventBrowse);
         captureImage = findViewById(R.id.my_avatar);
 
@@ -52,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 sendIntent.setType("image/*");
 
                 if(uri != null){
-                    sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                    sendIntent.putExtra(Intent.EXTRA_STREAM, uri );
                     try {
                         startActivity(sendIntent);
-                        Toast.makeText(MainActivity.this, "No se ha seleccionado una imagen"+uri,Toast.LENGTH_LONG).show();
+
 
                     }catch (Exception e){
                         Toast.makeText(MainActivity.this, "Error al enviar\n"+e.getMessage(),Toast.LENGTH_LONG).show();
@@ -86,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 101 && resultCode == RESULT_OK && data != null) {
+
             uri = data.getData();
+
             captureImage.setImageURI(uri);
 
         }

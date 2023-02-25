@@ -90,9 +90,9 @@
         android:id="@+id/send"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:src="@drawable/ic_baseline_send_24"
         android:layout_marginTop="500dp"
-        android:layout_marginRight="200dp"
+
+        android:src="@drawable/ic_baseline_send_24"
 
         >
 
@@ -102,15 +102,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/correo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="500dp"
-            android:src="@drawable/ic_baseline_email_24">
 
-        </ImageView>
 
     </LinearLayout>
 
